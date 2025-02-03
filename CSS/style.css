@@ -1,0 +1,142 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 15px;
+}
+
+.menu li a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.column {
+    background: #f4f4f4;
+    padding: 20px;
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+/* Адаптивные изображения */
+.responsive-img {
+    width: 100%;
+    height: auto; /* Сохраняет пропорции */
+}
+
+/* Мобильные устройства */
+@media (max-width: 768px) {
+    .menu {
+        display: none; /* По умолчанию меню скрыто */
+        flex-direction: column;
+        background: #333;
+        position: absolute;
+        top: 50px;
+        right: 0;
+        width: 200px;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .menu li {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    /* Изображения на мобильных устройствах */
+    .column img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Когда класс show добавлен, меню будет видимым */
+    .menu.show {
+        display: flex;
+        opacity: 1;
+    }
+}
+
+/* Планшеты */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .menu {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .content {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .column {
+        flex: 1 1 calc(50% - 20px);
+    }
+
+    /* Изображения на планшетах */
+    .column img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+/* Десктопы */
+@media (min-width: 1024px) {
+    .menu {
+        display: flex;
+    }
+
+    .content {
+        justify-content: space-between;
+    }
+
+    .column {
+        flex: 1 1 calc(33.33% - 20px);
+    }
+
+    /* Изображения на десктопах */
+    .column img {
+        width: 100%;
+        height: auto;
+    }
+}
